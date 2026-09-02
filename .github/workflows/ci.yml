@@ -24,5 +24,14 @@ jobs:
           java-version: "21"
           cache: maven
 
-      - name: Ejecutar pruebas con Maven
-        run: mvn --batch-mode clean test
+      - name: Compilar, probar y empaquetar
+        run: mvn --batch-mode clean package
+
+      - name: Publicar paquete JAR
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v7
+        with:
+          name: SysDespacho-Conte
+          path: target/*.jar
+          if-no-files-found: error
+          retention-days: 7
