@@ -10,21 +10,47 @@ public class App {
 
         LocalDateTime currentTime = LocalDateTime.now();
 
-        ContainerDispatch dispatch = new ContainerDispatch(
-                "CONT-001",
-                "Cliente Agroindustrial",
-                "Puerto del Callao",
-                currentTime.plusMinutes(15)
-        );
+        ContainerDispatch[] dispatches = {
+            new ContainerDispatch(
+                    "CONT-001",
+                    "Cliente Agroindustrial A",
+                    "Puerto del Callao",
+                    currentTime.plusMinutes(60)
+            ),
+            new ContainerDispatch(
+                    "CONT-002",
+                    "Cliente Agroindustrial B",
+                    "Puerto de Paita",
+                    currentTime.plusMinutes(15)
+            ),
+            new ContainerDispatch(
+                    "CONT-003",
+                    "Cliente Agroindustrial C",
+                    "Puerto de Chancay",
+                    currentTime.minusMinutes(20)
+            )
+        };
 
+        for (ContainerDispatch dispatch : dispatches) {
+            mostrarResultado(dispatch, currentTime);
+        }
+    }
+
+    private static void mostrarResultado(
+            ContainerDispatch dispatch,
+            LocalDateTime currentTime
+    ) {
         DispatchStatus status = DispatchClassifier.classify(
                 dispatch.getScheduledTime(),
                 currentTime
         );
 
+        System.out.println();
+        System.out.println("------------------------------");
         System.out.println("Contenedor: " + dispatch.getContainerNumber());
         System.out.println("Cliente: " + dispatch.getClient());
         System.out.println("Destino: " + dispatch.getDestination());
-        System.out.println("Estado: " + status);
+        System.out.println("Hora programada: " + dispatch.getScheduledTime());
+        System.out.println("Estado calculado: " + status);
     }
 }
