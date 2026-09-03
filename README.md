@@ -1,7 +1,5 @@
 # SysDespacho-Conte
 
-[![Integracion Continua](https://github.com/frankarone/SysDespacho-Conte-TIC/actions/workflows/ci.yml/badge.svg)](https://github.com/frankarone/SysDespacho-Conte-TIC/actions/workflows/ci.yml)
-
 Proyecto académico TA1 de DevOps y CI/CD desarrollado con Java y Maven.
 
 ## Descripción
@@ -16,7 +14,7 @@ Cada despacho se clasifica según el tiempo restante:
 
 ## Tecnologías
 
-- Java 21
+- Java 25
 - Apache Maven
 - JUnit
 - Git y GitHub
@@ -26,16 +24,15 @@ Cada despacho se clasifica según el tiempo restante:
 
 ```text
 src/
-├── main/java/com/sysdespacho/
-│   ├── App.java
-│   ├── ContainerDispatch.java
-│   ├── DispatchClassifier.java
-│   └── DispatchStatus.java
-└── test/java/com/sysdespacho/
-    ├── ContainerDispatchTest.java
-    └── DispatchClassifierTest.java
+|-- main/java/com/sysdespacho/
+│   |-- App.java
+│   |-- ContainerDispatch.java
+│   |-- DispatchClassifier.java
+│   |- DispatchStatus.java
+|-- test/java/com/sysdespacho/
+    |-- ContainerDispatchTest.java
+    |-- DispatchClassifierTest.java
 ```
-
 ## Ejecutar las pruebas
 
 ```bash
@@ -69,7 +66,7 @@ El flujo `.github/workflows/ci.yml` se ejecuta automáticamente cuando se realiz
 La canalización realiza las siguientes tareas:
 
 1. Descarga el código del repositorio.
-2. Configura Java 21 y la caché de Maven.
+2. Configura Java 25 y la caché de Maven.
 3. Ejecuta las pruebas automatizadas.
 4. Compila y genera el paquete JAR.
 5. Copia el JAR a la carpeta temporal `staging`.
