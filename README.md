@@ -66,7 +66,7 @@ El flujo `.github/workflows/ci.yml` se ejecuta automáticamente cuando se realiz
 La canalización realiza las siguientes tareas:
 
 1. Descarga el código del repositorio.
-2. Configura Java 25 y la caché de Maven.
+2. Configura Java 21 y la caché de Maven.
 3. Ejecuta las pruebas automatizadas.
 4. Compila y genera el paquete JAR.
 5. Copia el JAR a la carpeta temporal `staging`.
