@@ -24,8 +24,11 @@ jobs:
           java-version: "21"
           cache: maven
 
-      - name: Compilar, probar y empaquetar
-        run: mvn --batch-mode clean package
+      - name: Ejecutar pruebas automatizadas
+        run: mvn --batch-mode clean test
+
+      - name: Compilar y empaquetar
+        run: mvn --batch-mode package -DskipTests
 
       - name: Desplegar en staging
         if: github.event_name == 'push'
