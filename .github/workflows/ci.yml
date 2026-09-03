@@ -27,11 +27,17 @@ jobs:
       - name: Compilar, probar y empaquetar
         run: mvn --batch-mode clean package
 
+      - name: Desplegar en staging
+        if: github.event_name == 'push'
+        run: |
+          mkdir -p staging
+          cp target/*.jar staging/
+
       - name: Publicar paquete JAR
         if: github.event_name == 'push'
         uses: actions/upload-artifact@v7
         with:
           name: SysDespacho-Conte
-          path: target/*.jar
+          path: staging/*.jar
           if-no-files-found: error
           retention-days: 7
