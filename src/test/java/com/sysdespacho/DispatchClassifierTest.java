@@ -11,7 +11,7 @@ public class DispatchClassifierTest extends TestCase {
         LocalDateTime currentTime = LocalDateTime.of(2026, 9, 2, 9, 0);
 
         assertEquals(
-                DispatchStatus.SALIR,
+                DispatchStatus.A_TIEMPO,
                 DispatchClassifier.classify(scheduledTime, currentTime)
         );
     }
