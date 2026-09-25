@@ -1,0 +1,19 @@
+# Archivos generados por Maven
+target/
+
+# Archivos compilados de Java
+*.class
+
+# Configuración de IDE
+.vscode/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Registros y archivos temporales
+*.log
+
+# Archivos generados por herramientas de modernización
+.github/modernize/
